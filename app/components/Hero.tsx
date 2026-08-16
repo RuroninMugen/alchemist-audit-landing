@@ -1,6 +1,11 @@
 "use client";
 
 import { motion } from "framer-motion";
+import dynamic from "next/dynamic";
+
+const AuditGlobe = dynamic(() => import("@/components/AuditGlobe"), {
+  ssr: false,
+});
 
 const fadeUp = {
   initial: { opacity: 0, y: 20 },
@@ -13,6 +18,10 @@ export default function Hero() {
       id="top"
       className="relative overflow-hidden border-b border-border/60"
     >
+      <div className="absolute inset-0 -z-10 opacity-55 pointer-events-none">
+        <AuditGlobe />
+      </div>
+
       <div
         className="pointer-events-none absolute inset-x-0 top-0 -z-10 h-[560px]"
         style={{
